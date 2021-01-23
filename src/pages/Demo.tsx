@@ -7,15 +7,17 @@ import './Demo.css';
 
 
 export const Demo: React.FC = () => {
-  const [showPopup, setShowPopup] = useState(shouldPopupDisplay());
+  const [showPopup, setShowPopup] = useState(false);
   const [popup, setPopup] = useState({id: 0, message: 'Loading...'});
   useEffect(() => {
     async function fetchPopupData() {
       const popup: popup = await getPopup();
+      const showPopup = await shouldPopupDisplay();
       setPopup(popup);
+      setShowPopup(showPopup);
+      setCookie('wisepopsvisited', true, 2);
     }
     fetchPopupData();
-    setCookie('wisepopsvisited', true, 2)
   }, [])
 
   /**
