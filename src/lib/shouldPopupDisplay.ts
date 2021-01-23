@@ -2,5 +2,6 @@ import { getCookie } from '../helpers/cookieHelpers';
 
 export function shouldPopupDisplay () {
   const isFirstVisit = !Boolean(getCookie('wisepopsvisited'));
-  return isFirstVisit;
+  const isUserOnMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+  return isFirstVisit || isUserOnMobile;
 }
