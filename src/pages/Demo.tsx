@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 
-import { getPopup } from '../lib/popup';
+import { getPopup, shouldPopupDisplay } from '../lib';
+import { setCookie } from '../helpers/cookieHelpers'
 
 import './Demo.css';
 
 
 export const Demo: React.FC = () => {
-  const [showPopup, setShowPopup] = useState(false);
+  const [showPopup, setShowPopup] = useState(shouldPopupDisplay());
   const [popup, setPopup] = useState({id: 0, message: 'Loading...'});
   useEffect(() => {
     async function fetchPopupData() {
@@ -14,6 +15,7 @@ export const Demo: React.FC = () => {
       setPopup(popup);
     }
     fetchPopupData();
+    setCookie('wisepopsvisited', true, 2)
   }, [])
 
   /**
@@ -30,7 +32,7 @@ export const Demo: React.FC = () => {
         </div>
         <div className={showPopup ? 'mask' : 'maskHidden'} onClick={() => setShowPopup(false)} />
       </div>
-      <h1 className='welcomeText' onClick={() => setShowPopup(true)}>Show Popup 🎉</h1>
+      <h1 className='welcomeText' onClick={() => setShowPopup(true)}>Show Popup Forcefully 🎉</h1>
     </div>
   );
 };
