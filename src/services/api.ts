@@ -17,5 +17,5 @@ export const getUserCountry = async () => {
       method: 'GET',
       url: `${CHECK_COUNTRY_API}`,
   });
-  return response.data.geoplugin_countryName;
+  return response.data.country;
 };

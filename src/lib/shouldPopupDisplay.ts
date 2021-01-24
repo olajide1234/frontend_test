@@ -1,5 +1,5 @@
-import { getCookie, getIfUserIsOnMobile, getUserLangauage } from '../helpers';
-import { ENGLISH_LANG_KEY, FRANCE_CODE } from '../constants';
+import { getCookie, getIfUserIsOnMobile, getUserLangauage } from '../helpers/index';
+import { ENGLISH_LANG_KEY, COUNTRY_NAME } from '../constants';
 import { getUserCountry } from '../services/api';
 
 export async function shouldPopupDisplay () {
@@ -7,6 +7,6 @@ export async function shouldPopupDisplay () {
   const isUserOnMobile = getIfUserIsOnMobile();  
   const userSpeaksEnglish = getUserLangauage().includes(ENGLISH_LANG_KEY);
   const userCountry = await getUserCountry();
-  const isUserCountryFrance = userCountry === FRANCE_CODE;
-  return isFirstVisit || isUserOnMobile || userSpeaksEnglish || isUserCountryFrance;
+  const isUserInCatchmentCountry = userCountry === COUNTRY_NAME;
+  return isFirstVisit || isUserOnMobile || userSpeaksEnglish || isUserInCatchmentCountry;
 }
