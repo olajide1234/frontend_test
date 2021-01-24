@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { getPopup } from '../lib/popup';
 
@@ -7,7 +7,14 @@ import './Demo.css';
 
 export const Demo: React.FC = () => {
   const [showPopup, setShowPopup] = useState(false);
-  const popup: popup = getPopup();
+  const [popup, setPopup] = useState({id: 0, message: 'Loading...'});
+  useEffect(() => {
+    async function fetchPopupData() {
+      const popup: popup = await getPopup();
+      setPopup(popup);
+    }
+    fetchPopupData();
+  }, [])
 
   /**
    * Step 1: Render popup message in an overlay
