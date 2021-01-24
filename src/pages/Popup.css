@@ -1,0 +1,14 @@
+.bottomMargin {
+  margin-bottom: 30px;
+}
+
+.form {
+  text-align: center;
+  margin-top: 20%;
+}
+
+.submitButton {
+  cursor: pointer;
+  margin-top: 10px;
+  padding: 10px;
+}
