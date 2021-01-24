@@ -87,3 +87,10 @@ For this step you will need to:
 - Add a webpack configuration
 - Create a `demo.ts` file that will be the entry point of the webpack configuration
 - Add a webserver to serve the `demo.js` bundle
+
+
+### Solution to task 5
+To test the UMD bundle:
+- Build project with `yarn build`
+- Run `yarn test:bundle`
+- Open a new terminal and run `yarn open:test` to view the test webpage

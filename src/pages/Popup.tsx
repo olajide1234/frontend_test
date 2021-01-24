@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { editPopup, getPopup } from '../lib';
+import { editPopup, getPopup } from '../lib/index';
 
 import './Popup.css';
 

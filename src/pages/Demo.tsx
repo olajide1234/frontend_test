@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import { getPopup, shouldPopupDisplay } from '../lib';
+import { getPopup, shouldPopupDisplay } from '../lib/index';
 import { setCookie } from '../helpers/cookieHelpers'
 
 import './Demo.css';
@@ -34,7 +34,6 @@ export const Demo: React.FC = () => {
         </div>
         <div className={showPopup ? 'mask' : 'maskHidden'} onClick={() => setShowPopup(false)} />
       </div>
-      <h1 className='welcomeText' onClick={() => setShowPopup(true)}>Show Popup Forcefully 🎉</h1>
     </div>
   );
 };
